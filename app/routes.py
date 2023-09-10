@@ -1,4 +1,5 @@
 from app import app 
+from flask import render_template, request
 @app.route('/')
-def hello():
-    return('hello world')
+def index():
+    return
