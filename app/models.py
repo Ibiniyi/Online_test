@@ -7,6 +7,7 @@ class Student(db.Model):
     email = db.Column(db.String(255), unique=True)
     score = db.Column(db.Integer)
     matric_no = db.Column(db.String(255),unique=True,nullable=False)
+    written = db.Column(db.Integer,default=0)
 
 class Question(db.Model):
     id = db.Column(db.Integer,primary_key=True,unique=True,nullable=False)

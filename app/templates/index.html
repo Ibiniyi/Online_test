@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+        }
+        .form {
+            height: 400px;
+            width: 600px;
+            border: solid;
+            border-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -300px;
+        }
+        @media only screen and (max-width: 600px) {
+            .form {
+                height: 400px;
+                width: 300px;
+                border: solid;
+                border-color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin-top: -200px;
+                margin-left: -150px;
+            }
+          }
+        #m {
+            margin-bottom: 0;
+            padding: 10px 100px;
+            position: auto;
+            border-radius: none;
+            border: solid 2px lightblue;
+            text-align: center;
+        }
+        
+        .start {
+            display: block;
+            margin: auto;
+            margin-top: 15px;
+            border: solid 1px lightblue;
+            background-color: white;
+            cursor: pointer;
+            padding: 10px 30px;
+            text-align: center;
+            position: auto;
+            transition: background-color 0.5s;
+            border-radius: 2em;
+            
+        }
+        :active.start {
+            background-color: lightblue;
+        }
+        :hover.start {
+            background-color: lightblue;
+        }
+        .label {
+            font-family:'Cinzel';    
+            position: absolute;
+            margin-top: -200px;
+            color: rgb(42, 74, 85);
+        }
+        .flashed {
+           /* display: flex; */
+            background-color: rgb(255, 0, 0);
+            text-align: center;
+            border-radius: 2em;
+            padding: 4px 5px;
+            color: white;
+            opacity: 0.5;
+            margin-right: 0;
+        }
+        :hover.ex{
+            color: red;
+            background-color: white;
+        }
+        .ex{
+           float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <p class="flashed">{{ message }} <span class="ex" onclick="document.querySelector('.flashed').style.display = 'none'">&times;</span></p>
+
+    {% endfor %}
+    <div class="form">
+        <h1 class="label">CSC 100</h1>
+        <form action="/exam" method="post">
+            <input type="text" name="matric_no" id="m" placeholder="MATRIC NUMBER">
+            <button class="start">Start Exam</button>
+        </form>
+    </div>
+</body>
+</html>
