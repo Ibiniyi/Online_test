@@ -9,15 +9,29 @@
     <p>Please Verify your details below are correct</p>
     <p>Matric no: {{ matric_no }}</p>
     <p>Name: {{ firstname }} {{ lastname }}</p>
-    <form action="/submit" method="post">
-    {% for question in questions %}
-    <label>{{ question.question }}</label>
-    {% for i in question.options %}
-    <input type="radio" name="i" value="LOA">
-    {% endfor %}
-    
-    {% endfor %} 
-    <button type="submit">Submit</button>   
-</form>
+    <form method="POST">
+        {% for question in questions %}
+          <h2>Question {{ loop.index }}</h2>
+          <p>{{ question.question }}</p>
+          <label>
+            <input type="radio" name="answer{{ loop.index }}" value="{{ question.options[0] }}" required>
+            {{ question.options[0] }}
+          </label>
+          <label>
+            <input type="radio" name="answer{{ loop.index }}" value="{{ question.options[1] }}" required>
+            {{ question.options[1] }}
+          </label>
+          <label>
+            <input type="radio" name="answer{{ loop.index }}" value="{{ question.options[2] }}" required>
+            {{ question.options[2] }}
+          </label>
+          <label>
+            <input type="radio" name="answer{{ loop.index }}" value="{{ question.options[3] }}" required>
+            {{ question.options[3] }}
+          </label>
+        {% endfor %}
+        <br><br>
+        <input type="submit" value="Submit Quiz">
+      </form>
 </body>
 </html>
