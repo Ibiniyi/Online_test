@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Installation of required packages..."
 
-# pip install -r requirements.txt
+pip install -r requirements.txt
 
 migrations_path="migrations/"
 
@@ -32,7 +32,3 @@ else
     flask db migrate
     flask db upgrade
 fi
-# flask db init
-# flask db migrate
-# flask db upgrade
-# flask run
