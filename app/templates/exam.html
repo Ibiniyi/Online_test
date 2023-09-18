@@ -9,7 +9,7 @@
     <p>Please Verify your details below are correct</p>
     <p>Matric no: {{ matric_no }}</p>
     <p>Name: {{ firstname }} {{ lastname }}</p>
-    <form method="POST">
+    <form method="POST" action="/submit">
         {% for question in questions %}
           <h2>Question {{ loop.index }}</h2>
           <p>{{ question.question }}</p>
